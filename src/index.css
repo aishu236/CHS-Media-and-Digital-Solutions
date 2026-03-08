@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 12%;
+
+    --primary: 220 55% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 92% 53%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 30 92% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 55% 25%;
+
+    --radius: 0.75rem;
+
+    --navy: 220 55% 25%;
+    --navy-light: 220 40% 35%;
+    --orange: 30 92% 53%;
+    --orange-light: 30 92% 60%;
+    --cream: 40 30% 97%;
+
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+
+    --shadow-soft: 0 4px 30px hsl(220 55% 25% / 0.08);
+    --shadow-card: 0 8px 40px hsl(220 55% 25% / 0.1);
+    --shadow-elevated: 0 20px 60px hsl(220 55% 25% / 0.15);
+    --shadow-glow: 0 0 40px hsl(30 92% 53% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--orange)) 100%);
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--cream)) 0%, hsl(var(--background)) 50%, hsl(var(--cream)) 100%);
+  }
+
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+
+  .bg-orange {
+    background-color: hsl(var(--orange));
+  }
+
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+
+  .text-orange {
+    color: hsl(var(--orange));
+  }
+
+  .border-navy {
+    border-color: hsl(var(--navy));
+  }
+
+  .card-3d {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .card-3d-inner {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+  }
+
+  .card-3d:hover .card-3d-inner {
+    transform: rotateY(5deg) rotateX(5deg);
+  }
+
+  .perspective-container {
+    perspective: 2000px;
+  }
+
+  .loader-pulse {
+    animation: loaderPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes loaderPulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  .loader-bar {
+    animation: loaderBar 1.2s ease-in-out infinite;
+  }
+
+  @keyframes loaderBar {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotateX(0deg); }
+    50% { transform: translateY(-20px) rotateX(5deg); }
+  }
+
+  .section-padding {
+    @apply py-14 md:py-20 px-6 md:px-12 lg:px-20;
+  }
+
+  .cursor-none {
+    cursor: none;
+  }
+
+  .cursor-none:hover ~ .custom-cursor,
+  .cursor-none:hover {
+    cursor: none;
+  }
+}
