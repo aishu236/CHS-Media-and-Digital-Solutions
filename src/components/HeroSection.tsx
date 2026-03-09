@@ -112,7 +112,7 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 80, rotateX: 20 }}
           animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          transition={{ duration: 1.2, delay: 2.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="perspective-container"
         >
           <h1 className="font-heading font-900 text-5xl md:text-7xl lg:text-8xl leading-tight mb-6">
