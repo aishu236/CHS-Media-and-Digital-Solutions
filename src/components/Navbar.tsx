@@ -2,15 +2,20 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/chs-logo-new.png";
+import { scrollToSection } from "@/lib/scroll";
 
 const navItems = ["About", "Services", "Works", "Contact"];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollTo = (id: string) => {
-    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (label: string) => {
+    const id = label.toLowerCase();
+    const targetId = id === "contact" ? "book-appointment" : id;
+
+    // Close the mobile menu first, then scroll (prevents scroll cancellation on mobile)
     setIsOpen(false);
+    window.setTimeout(() => scrollToSection(targetId), 0);
   };
 
   return (

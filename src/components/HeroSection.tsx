@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Play, ArrowDown, Instagram, Camera, Hash, Heart, Share2, BarChart3, Megaphone, TrendingUp, MessageCircle, Youtube, Palette } from "lucide-react";
+import { scrollToSection } from "@/lib/scroll";
 
 const floatingIcons = [
   { Icon: Camera, top: "8%", left: "5%", size: 28, color: "orange" },
@@ -148,7 +149,7 @@ const HeroSection = () => {
           <motion.button
             whileHover={{ scale: 1.08, rotateZ: -1 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById("works")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => scrollToSection("works")}
             className="group flex items-center gap-3 px-8 py-4 bg-navy text-primary-foreground rounded-full font-heading font-600 text-sm uppercase tracking-wider hover:shadow-[var(--shadow-elevated)] transition-all duration-300"
           >
             <Play size={18} />
@@ -157,7 +158,7 @@ const HeroSection = () => {
           <motion.button
             whileHover={{ scale: 1.08, rotateZ: 1 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => scrollToSection("book-appointment")}
             className="flex items-center gap-3 px-8 py-4 border-2 border-navy text-navy rounded-full font-heading font-600 text-sm uppercase tracking-wider hover:bg-navy hover:text-primary-foreground transition-all duration-300"
           >
             Get In Touch
