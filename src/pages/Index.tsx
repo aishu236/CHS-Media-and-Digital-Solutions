@@ -19,13 +19,13 @@ const Index = () => {
     const timer = setTimeout(() => {
       setIsLoading(false);
       setShowSkeleton(true);
-    }, 2500);
+    }, 1200);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (showSkeleton) {
-      const timer = setTimeout(() => setContentReady(true), 800);
+      const timer = setTimeout(() => setContentReady(true), 300);
       return () => clearTimeout(timer);
     }
   }, [showSkeleton]);
