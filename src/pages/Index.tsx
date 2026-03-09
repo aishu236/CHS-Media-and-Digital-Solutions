@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
-import SkeletonPage from "@/components/SkeletonPage";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ClientLogos from "@/components/ClientLogos";
@@ -12,40 +11,31 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [showSkeleton, setShowSkeleton] = useState(false);
-  const [contentReady, setContentReady] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      setShowSkeleton(true);
-    }, 1200);
-    return () => clearTimeout(timer);
+    const timer = window.setTimeout(() => setIsLoading(false), 900);
+    return () => window.clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    if (showSkeleton) {
-      const timer = setTimeout(() => setContentReady(true), 300);
-      return () => clearTimeout(timer);
-    }
-  }, [showSkeleton]);
 
   return (
     <>
       <LoadingScreen isLoading={isLoading} />
-      {!isLoading && !contentReady && <SkeletonPage />}
-      {contentReady && (
-        <>
-          <Navbar />
-          <HeroSection />
-          <ClientLogos />
-          <AboutSection />
-          <ServicesSection />
-          <WorksSection />
-          <ContactSection />
-          <Footer />
-        </>
-      )}
+
+      {/* Keep the actual page mounted so navigation/buttons work immediately after the overlay disappears */}
+      <div
+        className={`transition-opacity duration-300 ${
+          isLoading ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <Navbar />
+        <HeroSection />
+        <ClientLogos />
+        <AboutSection />
+        <ServicesSection />
+        <WorksSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </>
   );
 };
