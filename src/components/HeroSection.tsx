@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Play, ArrowDown, Instagram, Camera, Hash, Heart, Share2, BarChart3, Megaphone, TrendingUp, MessageCircle, Youtube, Palette } from "lucide-react";
+import { scrollToSection } from "@/lib/scroll";
 
 const floatingIcons = [
   { Icon: Camera, top: "8%", left: "5%", size: 28, color: "orange" },
