@@ -75,7 +75,11 @@ const ContactSection = () => {
             onMouseMove={onMouseMove}
             onMouseLeave={onMouseLeave}
           >
-            <div className="bg-background rounded-3xl p-8 shadow-[var(--shadow-elevated)]" style={{ transform: "translateZ(20px)" }}>
+            <div
+              id="book-appointment"
+              className="bg-background rounded-3xl p-8 shadow-[var(--shadow-elevated)]"
+              style={{ transform: "translateZ(20px)" }}
+            >
               <h3 className="font-heading font-700 text-xl text-foreground mb-6">Book an Appointment</h3>
               <BookingForm />
             </div>
