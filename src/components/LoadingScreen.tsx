@@ -28,7 +28,7 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
               className="h-full bg-orange rounded-full"
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ duration: 1, ease: "easeInOut" }}
             />
           </div>
 
