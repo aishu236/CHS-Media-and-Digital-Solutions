@@ -20,8 +20,6 @@ const Index = () => {
   return (
     <>
       <LoadingScreen isLoading={isLoading} />
-
-      {/* Keep the actual page mounted so navigation/buttons work immediately after the overlay disappears */}
       <div
         className={`transition-opacity duration-300 ${
           isLoading ? "opacity-0" : "opacity-100"
