@@ -1,8 +1,17 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Play, ArrowDown, Instagram } from "lucide-react";
+import { Play, ArrowDown, Instagram, TrendingUp, Share2, Megaphone, BarChart3, Palette, Camera } from "lucide-react";
 import { scrollToSection } from "@/lib/scroll";
 import { useIsMobile } from "@/hooks/use-mobile";
+
+const floatingIcons = [
+  { icon: TrendingUp, x: "10%", y: "20%", delay: 0, rotate: -15 },
+  { icon: Share2, x: "85%", y: "15%", delay: 0.3, rotate: 12 },
+  { icon: Megaphone, x: "8%", y: "70%", delay: 0.6, rotate: 10 },
+  { icon: BarChart3, x: "88%", y: "65%", delay: 0.9, rotate: -8 },
+  { icon: Palette, x: "18%", y: "45%", delay: 1.2, rotate: 20 },
+  { icon: Camera, x: "82%", y: "40%", delay: 0.5, rotate: -12 },
+];
 
 const HeroSection = () => {
   const ref = useRef(null);
@@ -26,6 +35,29 @@ const HeroSection = () => {
           }}
         />
       </div>
+
+      {/* Floating 3D icons — desktop only */}
+      {!isMobile && (
+        <div className="absolute inset-0 pointer-events-none z-0">
+          {floatingIcons.map((item, i) => (
+            <motion.div
+              key={i}
+              className="absolute"
+              style={{ left: item.x, top: item.y }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 0.15, scale: 1, rotate: item.rotate }}
+              transition={{ duration: 0.8, delay: item.delay }}
+            >
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <item.icon size={40} className="text-navy" strokeWidth={1.5} />
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      )}
 
       <motion.div
         className="relative z-10 max-w-5xl mx-auto px-6 text-center"
