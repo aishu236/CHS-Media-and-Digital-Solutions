@@ -41,7 +41,7 @@ const HeroSection = () => {
             <span className="text-gradient">Media</span>
             <br />
             <span className="text-foreground/80 text-3xl md:text-5xl lg:text-6xl font-600 inline-block">
-              & Digital Solutions
+              Marketing & Digital Solutions
             </span>
           </h1>
         </motion.div>
