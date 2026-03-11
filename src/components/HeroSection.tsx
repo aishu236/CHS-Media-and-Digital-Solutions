@@ -36,6 +36,29 @@ const HeroSection = () => {
         />
       </div>
 
+      {/* Floating 3D icons — desktop only */}
+      {!isMobile && (
+        <div className="absolute inset-0 pointer-events-none z-0">
+          {floatingIcons.map((item, i) => (
+            <motion.div
+              key={i}
+              className="absolute"
+              style={{ left: item.x, top: item.y }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 0.15, scale: 1, rotate: item.rotate }}
+              transition={{ duration: 0.8, delay: item.delay }}
+            >
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <item.icon size={40} className="text-navy" strokeWidth={1.5} />
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      )
+
       <motion.div
         className="relative z-10 max-w-5xl mx-auto px-6 text-center"
         style={isMobile ? undefined : { y: heroY, opacity: heroOpacity }}
