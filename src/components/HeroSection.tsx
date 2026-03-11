@@ -1,8 +1,17 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Play, ArrowDown, Instagram } from "lucide-react";
+import { Play, ArrowDown, Instagram, TrendingUp, Share2, Megaphone, BarChart3, Palette, Camera } from "lucide-react";
 import { scrollToSection } from "@/lib/scroll";
 import { useIsMobile } from "@/hooks/use-mobile";
+
+const floatingIcons = [
+  { icon: TrendingUp, x: "10%", y: "20%", delay: 0, rotate: -15 },
+  { icon: Share2, x: "85%", y: "15%", delay: 0.3, rotate: 12 },
+  { icon: Megaphone, x: "8%", y: "70%", delay: 0.6, rotate: 10 },
+  { icon: BarChart3, x: "88%", y: "65%", delay: 0.9, rotate: -8 },
+  { icon: Palette, x: "18%", y: "45%", delay: 1.2, rotate: 20 },
+  { icon: Camera, x: "82%", y: "40%", delay: 0.5, rotate: -12 },
+];
 
 const HeroSection = () => {
   const ref = useRef(null);
