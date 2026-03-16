@@ -29,7 +29,7 @@ const Navbar = () => {
         <img
           src={logo}
           alt="CHS Media"
-          className="h-12 cursor-pointer"
+          className="h-12 cursor-pointer mix-blend-multiply"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         />
 
