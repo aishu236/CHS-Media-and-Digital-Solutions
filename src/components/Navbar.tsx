@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/chs-logo-new.png";
+import logo from "@/assets/chs-header-logo.png";
 import { scrollToSection } from "@/lib/scroll";
 
 const navItems = ["About", "Services", "Works", "Contact"];
